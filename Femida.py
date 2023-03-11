@@ -308,6 +308,8 @@ def initialize():
 
         if not os.path.exists('Updater.py'):
             updater = False
+        else:
+            updater = True
         bar.next()
 
         time.sleep(1)
