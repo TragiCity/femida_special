@@ -48,6 +48,20 @@ def load_key():
 
 def initialize():
 
+    def updater():
+        try:
+            import Updater
+
+            github_version = Updater.check_updates()
+            femida_version = Updater.femida_version()
+            if str(github_version) == str(femida_version):
+                pass
+            else:
+                logger.warning('Доступна новая версия Femida {0} | Закройте Femida и запустите Updater для обновления.'.format(github_version))
+        except:
+            pass
+
+
     def updater_info():
         config = configparser.ConfigParser()
         config['INFO'] = {
@@ -265,6 +279,7 @@ def initialize():
 
         config = configparser.ConfigParser()
         config.read('src/config.ini')
+        updater()
 
         choice_create("Выберите вариант работы", ['Клиент', 'Сервер', 'Выход'])
         returned = int(return_data())
