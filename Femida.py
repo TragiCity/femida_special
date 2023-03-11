@@ -51,7 +51,7 @@ def initialize():
     def updater_info():
         config = configparser.ConfigParser()
         config['INFO'] = {
-            "version": '0.0.6',
+            "version": '0.0.7',
             "updater": True,
         }
         config['UPDATER'] = {
